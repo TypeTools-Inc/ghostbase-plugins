@@ -55,6 +55,18 @@ Claude Code uses the marketplace entry version for this relative-path plugin.
 
 The Ghostbase plugin now includes its own packaged `ai-cole` subagent, so it works immediately after install without adding any extra project files.
 
+If the plugin installs but the `ai-cole` agent does not appear right away:
+
+1. Run `/plugin marketplace update ghostbase-plugins`
+2. Update or reinstall `ghostbase@ghostbase-plugins`
+3. Run `/reload-plugins`
+
+If Claude still shows the old plugin contents, clear the local plugin cache and reinstall:
+
+```bash
+rm -rf ~/.claude/plugins/cache
+```
+
 ## Auto-update behavior
 
 Third-party marketplaces are not auto-updated by default. Users need to enable auto-update for this marketplace in Claude Code if they want startup-time updates, or they can refresh manually with:
