@@ -7,8 +7,6 @@ MARKETPLACE_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 WORKSPACE_ROOT="$(cd "${MARKETPLACE_ROOT}/../.." && pwd)"
 SOURCE_PLUGIN_DIR="${WORKSPACE_ROOT}/claude-plugin/ghostbase/"
 TARGET_PLUGIN_DIR="${MARKETPLACE_ROOT}/plugins/ghostbase/"
-SOURCE_AI_COLE_AGENT="${WORKSPACE_ROOT}/.claude/agents/ai-cole.md"
-TARGET_AI_COLE_AGENT="${MARKETPLACE_ROOT}/templates/project/.claude/agents/ai-cole.md"
 
 if [[ ! -d "${SOURCE_PLUGIN_DIR}" ]]; then
   echo "Missing source plugin directory: ${SOURCE_PLUGIN_DIR}" >&2
@@ -16,10 +14,8 @@ if [[ ! -d "${SOURCE_PLUGIN_DIR}" ]]; then
 fi
 
 mkdir -p "${TARGET_PLUGIN_DIR}"
-mkdir -p "$(dirname "${TARGET_AI_COLE_AGENT}")"
 
 rsync -a --delete "${SOURCE_PLUGIN_DIR}" "${TARGET_PLUGIN_DIR}"
-cp "${SOURCE_AI_COLE_AGENT}" "${TARGET_AI_COLE_AGENT}"
 
 node - "${TARGET_PLUGIN_DIR}/.claude-plugin/plugin.json" <<'EOF'
 const fs = require("fs");

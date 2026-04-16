@@ -8,8 +8,6 @@ This repository is a standalone Claude Code marketplace for the Ghostbase plugin
   - The marketplace catalog Claude Code reads.
 - `plugins/ghostbase/`
   - The actual plugin directory Claude installs from this marketplace.
-- `templates/project/.claude/agents/ai-cole.md`
-  - A project-level subagent template for hard-routing AI Cole through its private MCP server.
 
 ## Why this is a separate repo
 
@@ -53,16 +51,9 @@ When you release a new plugin version:
 
 Claude Code uses the marketplace entry version for this relative-path plugin.
 
-## AI Cole hard routing
+## Included AI Cole agent
 
-The Ghostbase plugin skills assume the project also has a project-level `ai-cole` subagent with inline `mcpServers`, because plugin subagents cannot carry private inline MCP server definitions.
-
-To enable that behavior in a project:
-
-1. Copy `templates/project/.claude/agents/ai-cole.md` into the target project's `.claude/agents/ai-cole.md`.
-2. Restart Claude Code or reload agents.
-
-Without that file, the plugin still works, but any skill guidance that delegates to `ai-cole` will not hard-route through the private AI Cole MCP endpoint.
+The Ghostbase plugin now includes its own packaged `ai-cole` subagent, so it works immediately after install without adding any extra project files.
 
 ## Auto-update behavior
 
