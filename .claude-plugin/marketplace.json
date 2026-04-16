@@ -1,0 +1,35 @@
+{
+  "name": "ghostbase-plugins",
+  "owner": {
+    "name": "Ghostbase"
+  },
+  "metadata": {
+    "description": "Ghostbase plugins for Claude Code and Cowork.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ghostbase",
+      "source": "./plugins/ghostbase",
+      "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
+      "version": "0.2.1",
+      "author": {
+        "name": "Ghostbase"
+      },
+      "homepage": "https://ghostbase.com",
+      "category": "writing",
+      "tags": [
+        "ghostbase",
+        "writing",
+        "mcp",
+        "workflow"
+      ],
+      "keywords": [
+        "ghostbase",
+        "writing",
+        "ghostwriting",
+        "mcp"
+      ]
+    }
+  ]
+}

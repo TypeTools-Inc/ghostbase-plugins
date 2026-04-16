@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ghostbase": {
+      "type": "http",
+      "url": "https://ineptly-epiphylline-julietta.ngrok-free.dev/api/mcp?v=12"
+    }
+  }
+}

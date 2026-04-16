@@ -1,0 +1,7 @@
+{
+  "name": "ghostbase",
+  "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
+  "author": {
+    "name": "Ghostbase"
+  }
+}
