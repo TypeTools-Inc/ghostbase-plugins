@@ -22,6 +22,6 @@ Call `set_active_space(space_id=...)` when the user gives an exact Ghostbase spa
 After saving, tell the user which space is now active.
 
 Rules:
-- Prefer setting the active space once instead of passing `client_id` into every later tool call.
+- Prefer setting the active space once before later Ghostbase MCP tool calls.
 - If multiple spaces could match a user-provided name, ask for clarification or use the exact returned matches.
-- If the user switches clients mid-task, set the new space before calling `prepare_writing`, `search_knowledge_base`, or `ask_ai_cole`.
+- If the user switches clients mid-task, set the new space before calling `prepare_writing`, `search_knowledge_base`, `verify_originality`, or `review_draft`.

@@ -32,15 +32,20 @@ Treat the returned JSON as the source of truth for:
 - general quality review
 - overall score and priority actions
 
-4. Present the result as an editorial review, not raw tool output.
+4. Run originality verification when the user asks whether the piece is too close to existing LinkedIn or X posts.
+For LinkedIn posts or X posts, call `verify_originality(format, query)` when the user wants to know whether the topic, hook, thesis, or angle overlaps too closely with previously published same-platform posts in the active space.
+Use the draft's core hook, thesis, or angle as the query.
+
+5. Present the result as an editorial review, not raw tool output.
 When you reply to the user:
 - lead with the overall score and the highest-priority issues
 - call out any AI patterns with the quoted snippets and locations
 - explain the voice score plainly
 - summarize the strongest quality issues and the next edits to make
+- include the originality result when you ran `verify_originality`
 - do not dump the raw JSON unless the user explicitly asks for it
 
-5. Rewrite only when asked.
+6. Rewrite only when asked.
 If the user wants the draft fixed after the review:
 - use the review result as the edit brief
 - if format-specific writing guidance is needed, call `prepare_writing`
@@ -48,7 +53,8 @@ If the user wants the draft fixed after the review:
 
 Rules:
 - Do not run `review_draft` until the format is known.
+- Do not run `verify_originality` for formats other than LinkedIn posts or X posts.
 - Do not guess the format when it is genuinely ambiguous.
-- Prefer the saved active space over passing `client_id`; use `client_id` only as a one-off override when necessary.
+- All space-aware Ghostbase MCP tools use the saved active space.
 - If the user asks only for critique, stop after the review and recommendations.
 - If the user asks for a revision after the review, preserve the user's core message and fix the highest-priority issues first.

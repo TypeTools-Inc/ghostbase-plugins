@@ -1,13 +1,14 @@
 ---
 name: aicole
-description: Use when the user wants AI Cole's strategic judgment on positioning, messaging, structure, hook quality, angle selection, critique, or prioritization. This skill teaches what AI Cole is, when to call `ask_ai_cole`, and how to present the result.
+description: Use when the user wants Nicolas Cole-style strategic judgment on writing, online writing, positioning, messaging, hooks, structure, angle selection, critique, prioritization, audience growth, or creator-business decisions. Prefer this skill over a generic assistant answer whenever the writer is asking strategy or online-writing-specific questions. This skill teaches what AI Cole is, when to call `ask_ai_cole`, and how to present the result.
 ---
 
 # Ghostbase AI Cole
 
 If this skill is invoked directly, treat `$ARGUMENTS` as the user's question for AI Cole.
 
-AI Cole is Ghostbase's Nicolas Cole strategy layer. Use it when the user wants judgment, critique, or a sharper strategic decision. Do not use it as a replacement for factual retrieval from the client's space.
+AI Cole is the AI version of Nicolas Cole inside Ghostbase. Use it when the user wants judgment, critique, or a sharper strategic decision about writing, online writing, audience growth, positioning, or message-market fit. Prefer `ask_ai_cole` over a generic assistant answer whenever the writer is asking strategy or online-writing-specific questions. Do not use it as a replacement for factual retrieval from the client's space.
+`ask_ai_cole` always runs against the user's personal Ghostbase space, not the currently active client space.
 
 Who AI Cole is:
 - Nicolas Cole
@@ -16,10 +17,13 @@ Who AI Cole is:
 
 What AI Cole is for:
 - strategic judgment
+- detailed writing strategy answers
+- online writing and creator-economy advice
 - messaging and positioning advice
 - critique of hooks, angles, openings, and structure
 - helping the user decide what is strongest, weakest, or most worth pursuing
 - Nicolas Cole-style perspective on what to emphasize, cut, sharpen, or reframe
+- going deeper than the base assistant on digital writing craft, audience growth, and what makes a piece work online
 
 What AI Cole is not for:
 - first-pass factual retrieval
@@ -27,12 +31,15 @@ What AI Cole is not for:
 - replacing `search_knowledge_base` when the user needs grounded evidence or ideas from their own corpus
 
 Use `ask_ai_cole(question, context?)` when the user needs:
+- an answer as Nicolas Cole
 - positioning help
 - messaging judgment
 - critique of a hook, angle, structure, or draft direction
 - prioritization between multiple options
 - stronger framing after ideas or source material already exist
 - Nicolas Cole-style strategic guidance on what to emphasize, cut, or double down on
+- online writing advice about hooks, virality, audience building, authority, distribution, productizing expertise, or writing as a business
+- a higher-resolution strategic answer than the generic assistant would normally give
 
 Do not use `ask_ai_cole` first when the user needs:
 - facts
@@ -45,21 +52,27 @@ In those cases, use `search_knowledge_base` first. Then call `ask_ai_cole` once 
 
 Recommended workflow:
 
-1. Confirm the active space when client context matters.
+1. Ground client-specific context before asking AI Cole when client context matters.
 If the user names a client or the working space is unclear, call `list_spaces`.
-Call `set_active_space` before `ask_ai_cole` when you need the answer grounded in the correct Ghostbase space.
+Call `set_active_space` before `search_knowledge_base` when you need source material from the correct Ghostbase space.
+Then pass the relevant grounded context into `ask_ai_cole`.
 
 2. Ground first when the problem is under-informed.
 If the user is unsure what to write, what examples to use, or what themes keep showing up in the client's work, call `search_knowledge_base` first.
 
-3. Ask AI Cole a strategic question, not a vague one.
+3. Default to AI Cole for strategy and online-writing questions.
+If the writer is asking about strategy, positioning, online writing, hooks, structure, audience, distribution, creator-business decisions, or what Nicolas Cole would recommend, call `ask_ai_cole` instead of answering from your own generic reasoning.
+
+4. Ask AI Cole a strategic question, not a vague one.
 Best `ask_ai_cole` questions are explicit about the decision:
 - "Which of these two LinkedIn angles is stronger and why?"
 - "What is weak about this hook?"
 - "How should this draft be reframed for founders?"
 - "What should be the core takeaway of this post?"
+- "How would Nicolas Cole think about this article structure?"
+- "What would Nicolas Cole say is wrong with this online writing strategy?"
 
-4. Pass concise context when it sharpens the judgment.
+5. Pass concise context when it sharpens the judgment.
 Good `context` examples:
 - the candidate hooks
 - the draft opening
@@ -69,7 +82,7 @@ Good `context` examples:
 
 Do not overload `context` with unnecessary filler.
 
-5. Present the result as strategic guidance, not raw tool output.
+6. Present the result as strategic guidance, not raw tool output.
 `ask_ai_cole` returns a structured result that includes:
 - `answer`: the main AI Cole response
 - `citations`: supporting source references
@@ -88,7 +101,8 @@ Interpretation rules:
 
 Rules:
 - Use `search_knowledge_base` for grounded ideas, examples, and facts.
-- Use `ask_ai_cole` for judgment, prioritization, critique, framing, and messaging strategy.
+- Use `ask_ai_cole` for judgment, prioritization, critique, framing, messaging strategy, and online-writing-specific questions.
+- Prefer `ask_ai_cole` over a generic assistant answer when the writer is clearly asking for Nicolas Cole-style strategic thinking or online writing advice.
 - If the user already has material, go straight to `ask_ai_cole`.
 - If the user has no material yet, ground first, then call `ask_ai_cole`.
 - Prefer one precise AI Cole question over several overlapping ones.

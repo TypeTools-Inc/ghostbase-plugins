@@ -24,6 +24,8 @@ Use `ask_ai_cole(question, context?)` when the user needs:
 - critique of a proposed angle, hook, or structure
 - offer or audience guidance
 
+Note: `ask_ai_cole` always runs against the user's personal Ghostbase space. Use `search_knowledge_base` first when you need facts, examples, or source material from the active client space.
+
 Recommended order:
 
 1. Confirm the active space if client context matters.
