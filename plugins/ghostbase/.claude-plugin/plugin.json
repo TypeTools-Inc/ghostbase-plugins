@@ -1,5 +1,5 @@
 {
-  "name": "ghostbase",
+  "name": "Ghostbase",
   "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
   "skills": "./skills",
   "hooks": "./hooks/hooks.json",

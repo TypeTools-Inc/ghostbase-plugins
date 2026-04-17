@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "ghostbase",
+      "name": "Ghostbase",
       "source": "./plugins/ghostbase",
       "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
       "version": "0.0.1",
