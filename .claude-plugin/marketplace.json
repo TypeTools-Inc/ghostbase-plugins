@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Ghostbase plugins for Claude Code and Cowork.",
-    "version": "0.1.11"
+    "version": "0.1.12"
   },
   "plugins": [
     {
       "name": "ghostbase",
       "source": "./plugins/ghostbase",
       "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "strict": true,
       "skills": "./skills",
       "hooks": "./hooks/hooks.json",
