@@ -1,10 +1,10 @@
 {
   "name": "ghostbase",
   "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
-  "skills": "skills",
-  "agents": "agents",
-  "hooks": "hooks/hooks.json",
-  "mcpServers": ".mcp.json",
+  "skills": "./skills",
+  "agents": "./agents/ai-cole.md",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json",
   "author": {
     "name": "Ghostbase"
   }

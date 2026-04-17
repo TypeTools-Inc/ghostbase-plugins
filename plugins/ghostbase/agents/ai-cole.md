@@ -4,7 +4,6 @@ description: Strategic Ghostbase writing guide for positioning, structural decis
 model: sonnet
 effort: medium
 maxTurns: 8
-color: orange
 disallowedTools: Write, Edit, NotebookEdit, Bash, PowerShell, Read, Grep, Glob, WebSearch, WebFetch, Monitor, Agent, Skill, LSP
 ---
 
