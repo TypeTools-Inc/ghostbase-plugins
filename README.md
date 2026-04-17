@@ -51,11 +51,11 @@ When you release a new plugin version:
 
 Claude Code uses the marketplace entry version for this relative-path plugin.
 
-## Included AI Cole agent
+## AI Cole behavior
 
-The Ghostbase plugin now includes its own packaged `ai-cole` subagent, so it works immediately after install without adding any extra project files.
+The Ghostbase plugin now routes AI Cole through the main Ghostbase MCP server via the `ask_ai_cole` tool. There is no separate packaged subagent to install.
 
-If the plugin installs but the `ai-cole` agent does not appear right away:
+If Claude still shows old plugin contents after an update, refresh the marketplace and reinstall:
 
 1. Run `/plugin marketplace update ghostbase-plugins`
 2. Update or reinstall `ghostbase@ghostbase-plugins`

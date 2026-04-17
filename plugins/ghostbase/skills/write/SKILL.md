@@ -30,18 +30,18 @@ Treat the returned packet as the source of truth for voice, format rules, and an
 
 4. Choose the right supporting context path.
 Use `search_knowledge_base(query)` for factual retrieval, source material, examples, and idea mining from the selected Ghostbase space.
-Use the `ai-cole` subagent for strategic review, prioritization, positioning, structural decisions, or messaging judgment after material has been grounded.
+Use `ask_ai_cole(question, context?)` for strategic review, prioritization, positioning, structural decisions, or messaging judgment after material has been grounded.
 
 For ideation-heavy requests:
 - If the user is unsure what to write, what angle to take, or what examples to use, call `search_knowledge_base` immediately after `prepare_writing`.
 - Use idea-mining queries aimed at themes, stories, lessons, examples, or recurring topics in the active space.
 - Treat `search_knowledge_base` as the primary tool for topic discovery and first-pass hook material.
-- Delegate to the `ai-cole` subagent only after options exist and the user needs help judging, narrowing, or strategically reframing them.
+- Call `ask_ai_cole` only after options exist and the user needs help judging, narrowing, or strategically reframing them.
 
 For direct drafting or rewriting:
 - If the user already knows what they want to say, call `prepare_writing` first.
 - Call `search_knowledge_base` only when the draft needs client-specific facts, examples, proof, or source material.
-- Delegate to the `ai-cole` subagent only when the user wants messaging help, positioning help, or a strategic review of the direction.
+- Call `ask_ai_cole` only when the user wants messaging help, positioning help, or a strategic review of the direction.
 
 5. Draft or revise after the packet is loaded.
 Use the packet as the primary instruction set.
@@ -58,5 +58,5 @@ Rules:
 - Prefer the saved active space over passing `client_id`; use `client_id` only as a one-off override when necessary.
 - Ask a clarifying question when the format is genuinely ambiguous instead of guessing.
 - If the requested format is unsupported, say so explicitly instead of silently mapping it to something else.
-- Use `search_knowledge_base` for topics, hook candidates, examples, and ideas grounded in the client's own knowledge; use the `ai-cole` subagent for judgment, prioritization, critique, framing, and messaging strategy.
+- Use `search_knowledge_base` for topics, hook candidates, examples, and ideas grounded in the client's own knowledge; use `ask_ai_cole` for judgment, prioritization, critique, framing, and messaging strategy.
 - `finalize` is optional and currently low-value; do not rely on it as part of the core workflow.
