@@ -2,7 +2,7 @@
   "mcpServers": {
     "ghostbase": {
       "type": "http",
-      "url": "https://ghostbase.com/api/mcp?v=001"
+      "url": "https://www.ghostbase.com/api/mcp?v=001"
     }
   }
 }
