@@ -1,4 +1,5 @@
 ---
+name: write
 description: Use when the user wants Ghostbase-assisted drafting, rewriting, editing, outlining, or idea generation for a supported format such as LinkedIn posts, emails, newsletters, articles, or tweets. This skill teaches the standard Ghostbase MCP workflow, format inference, and tool order.
 ---
 

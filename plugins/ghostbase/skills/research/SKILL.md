@@ -1,4 +1,5 @@
 ---
+name: research
 description: Use when the user needs Ghostbase-backed research, factual grounding, idea mining, or strategic review before or during writing. This skill teaches when to call `search_knowledge_base` versus delegating to the `ai-cole` subagent.
 ---
 

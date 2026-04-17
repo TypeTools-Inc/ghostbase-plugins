@@ -1,4 +1,5 @@
 ---
+name: switch-space
 description: Use when the user wants to inspect, change, confirm, or troubleshoot the active Ghostbase client or space before using other Ghostbase MCP tools.
 ---
 
