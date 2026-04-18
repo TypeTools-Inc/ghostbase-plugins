@@ -1,7 +1,7 @@
 {
   "name": "ghostbase",
   "description": "Ghostbase writing workflows for Claude Code using the Ghostbase MCP server.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "skills": "./skills",
   "hooks": "./hooks/hooks.json",
   "mcpServers": "./.mcp.json",
