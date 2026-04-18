@@ -35,6 +35,7 @@ Treat the returned JSON as the source of truth for:
 4. Run originality verification when the user asks whether the piece is too close to existing LinkedIn or X posts.
 For LinkedIn posts or X posts, call `verify_originality(format, query)` when the user wants to know whether the topic, hook, thesis, or angle overlaps too closely with previously published same-platform posts in the active space.
 Use the draft's core hook, thesis, or angle as the query.
+Treat the result as guidance on what to avoid repeating. Repeated topics are normal; the main question is whether the draft needs a fresher angle, opening, or approach.
 
 5. Present the result as an editorial review, not raw tool output.
 When you reply to the user:
@@ -42,13 +43,18 @@ When you reply to the user:
 - call out any AI patterns with the quoted snippets and locations
 - explain the voice score plainly
 - summarize the strongest quality issues and the next edits to make
-- include the originality result when you ran `verify_originality`
+- include the originality result when you ran `verify_originality`, with emphasis on whether the topic is still usable and which hooks, angles, or openings to avoid echoing
 - do not dump the raw JSON unless the user explicitly asks for it
 
 6. Rewrite only when asked.
 If the user wants the draft fixed after the review:
 - use the review result as the edit brief
-- if format-specific writing guidance is needed, call `prepare_writing`
+- if format-specific writing guidance is needed, call the matching load tool:
+- LinkedIn -> `load_linkedin_post_packet`
+- Email -> `load_email_packet`
+- Newsletter -> `load_email_packet`
+- Article -> `load_article_packet`
+- X post -> `load_x_post_packet`
 - then revise the draft
 
 Rules:
@@ -56,5 +62,6 @@ Rules:
 - Do not run `verify_originality` for formats other than LinkedIn posts or X posts.
 - Do not guess the format when it is genuinely ambiguous.
 - All space-aware Ghostbase MCP tools use the saved active space.
+- Do not frame a non-fresh topic as a failure by default; use the originality result to explain whether the draft simply needs a different angle or opening.
 - If the user asks only for critique, stop after the review and recommendations.
 - If the user asks for a revision after the review, preserve the user's core message and fix the highest-priority issues first.
