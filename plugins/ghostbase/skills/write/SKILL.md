@@ -34,6 +34,7 @@ Use `ask_ai_cole(question, context?)` for strategic review, prioritization, posi
 Use `verify_originality(format, query)` for LinkedIn or X posts once the intended topic, hook, thesis, or angle is clear, and do that before loading the packet.
 Treat `verify_originality` as framing guidance, not a veto on the topic. Repeated topics are normal. If related posts exist, default to keeping the topic and finding a fresher angle, hook, example set, or takeaway unless the tool indicates that the current framing is extremely close.
 For LinkedIn, use `search_templates(format="linkedin", query?)` after the angle is clear when a body template would help. Pick the best-fit template, then pass its `id` into `load_linkedin_post_packet`.
+Use `search_proven_hooks(format="linkedin", query?)` only when the user explicitly asks for more hook options, different hooks, or a fresh hook direction beyond the packet's `selectedProvenHooks`. It is supplemental, not part of the normal drafting flow.
 
 For ideation-heavy requests:
 - If the user is unsure what to write, what angle to take, or what examples to use, call `search_knowledge_base` first.
@@ -42,6 +43,7 @@ For ideation-heavy requests:
 - Call `ask_ai_cole` only after options exist and the user needs help judging, narrowing, or strategically reframing them.
 - For LinkedIn posts or X posts, once the angle is chosen, call `verify_originality` before loading the packet.
 - For LinkedIn posts, once the angle survives originality review, call `search_templates` if a specific post structure would help.
+- Do not call `search_proven_hooks` during normal ideation unless the user explicitly asks for new or different hooks.
 
 For direct drafting or rewriting:
 - If the user already knows what they want to say, use that topic, hook, thesis, or angle directly.
@@ -50,6 +52,7 @@ For direct drafting or rewriting:
 - Call `ask_ai_cole` only when the user wants messaging help, positioning help, or a strategic review of the direction.
 - Use the `verify_originality` summary, `recommendedAction`, and `watchouts` to identify which prior hooks, angles, or openings to avoid echoing.
 - For LinkedIn posts, call `search_templates` when a named template would improve the structure or when the user is deciding between post shapes.
+- If the user explicitly asks for stronger hooks, alternate openings, or a new hook direction for a LinkedIn post, call `search_proven_hooks` after the angle is clear and use the returned proven hook metadata to write fresh hook options in those patterns.
 
 5. Prepare the writing packet after the direction is set.
 Call the format-specific load tool after the angle is clear and, for LinkedIn or X posts, after `verify_originality`:
@@ -62,9 +65,10 @@ Treat the returned packet as the source of truth for voice, format rules, and an
 For LinkedIn, if the packet includes `claudeWritingPacket`, treat that object as the primary source of truth for the drafting layer:
 - `corePlaybook` = non-negotiable LinkedIn rules
 - `selectedTemplate` = the chosen body structure
-- `selectedHookPatterns` = hook pattern options linked to that template
+- `selectedProvenHooks` = proven hook options linked to that template
 - `voiceId` = author voice guidance
 - `antiAiWritingGuide` = anti-AI writing guidance
+Default to the packet's `selectedProvenHooks` first. Only call `search_proven_hooks` if the user explicitly wants more or different hook directions than the packet already provides.
 
 6. Draft or revise after the packet is loaded.
 Use the packet as the primary instruction set.
@@ -86,4 +90,5 @@ Rules:
 - Ask a clarifying question when the format is genuinely ambiguous instead of guessing.
 - If the requested format is unsupported, say so explicitly instead of silently mapping it to something else.
 - Use `search_knowledge_base` for topics, hook candidates, examples, and ideas grounded in the client's own knowledge; use `ask_ai_cole` for judgment, prioritization, critique, framing, and messaging strategy.
+- Do not call `search_proven_hooks` by default for LinkedIn drafting. Use it only when the user explicitly asks for additional or different hook options.
 - `finalize` is optional and currently low-value; do not rely on it as part of the core workflow.
