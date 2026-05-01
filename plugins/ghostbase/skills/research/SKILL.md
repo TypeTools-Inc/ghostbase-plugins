@@ -18,7 +18,7 @@ Quick start:
 
 Workflow:
 
-0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase plugin or MCP server, then stop.
+0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase connector or plugin, then stop.
 
 1. Select the space
 Run `list_spaces` when the working space is unclear. Run `set_active_space` when the user names a client or when source material must come from a specific Ghostbase space.

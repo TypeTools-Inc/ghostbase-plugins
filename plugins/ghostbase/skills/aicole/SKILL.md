@@ -44,7 +44,7 @@ Quick start:
 
 Workflow:
 
-0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase plugin or MCP server, then stop.
+0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase connector or plugin, then stop.
 
 1. Ground client-specific context before asking AI Cole when client context matters.
 If the user names a client or the working space is unclear, call `list_spaces`.

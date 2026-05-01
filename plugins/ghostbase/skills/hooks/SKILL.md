@@ -19,7 +19,7 @@ Quick start:
 
 Workflow:
 
-0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase plugin or MCP server, then stop.
+0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase connector or plugin, then stop.
 
 1. Confirm LinkedIn
 If the request is not clearly for a LinkedIn post, ask a clarifying question or say that Ghostbase's proven hook catalog is currently LinkedIn-only.

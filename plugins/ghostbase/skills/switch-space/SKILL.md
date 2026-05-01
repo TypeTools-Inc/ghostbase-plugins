@@ -18,7 +18,7 @@ Quick start:
 
 Workflow:
 
-0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase plugin or MCP server, then stop.
+0. If Ghostbase tools are unavailable, tell the user to connect the Ghostbase connector or plugin, then stop.
 
 1. Inspect when needed
 Call `list_spaces()` to see the current active space and the accessible spaces when the user asks to inspect, confirm, troubleshoot, or choose from multiple spaces.

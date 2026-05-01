@@ -1,5 +1,5 @@
 {
-  "name": "ghostbase",
+  "name": "Ghostbase",
   "description": "Ghostbase writing workflows that give AI assistants access to an author's knowledge, voice, writing packets, templates, originality checks, review tools, and writing-strategy guidance.",
   "skills": "./skills",
   "hooks": "./hooks/hooks.json",
